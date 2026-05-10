@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src='main.js'></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+
+</style>
+<body>
+    <main>
+        <hr>
+        <h1>Para minha Kaikai</h1>
+        <h2>Uma declaração simples para meu amorzinho</h2>
+        <hr>
+        <div class="carta">
+            <h3>Meu dengo</h3>
+            <p>
+                Eu não sou muito bom com palavras, mas fiz esse site só pra te dizer o quanto você significa pra mim. 
+                Mesmo longe, é você quem me faz mais feliz todos os dias. Eu amo o seu jeito, amo estar com você e amo 
+                saber que é você quem está ao meu lado. Eu sou completamente louco e obcecado por você minha princesa,
+                Obrigado por existir e por ser essa mulher maravilhosa. <br> Eu te amo, minha gata ❤️
+            </p>
+        </div>
+        <hr>
+        <div class="galeria">
+            <h2>Nossa mini galeria</h2>
+            <div class="imgs1"><img src="imgs/img01.jpeg" alt=""><img src="imgs/img02.jpeg" alt=""><img src="imgs/img03.jpeg" alt=""></div>
+      
+            <hr>
+            <h2>Meu fã Clube</h2>
+            <div class="imgs2">
+                <div>
+                    <img src="imgs/img04.jpeg" alt="">
+                    <p>Os olhos mais lindos que existem</p>
+                </div>
+                <div>
+                    <img src="imgs/img05.jpeg" alt="">
+                    <p>A mulher mais fofa</p>
+                </div>
+                <div>
+                    <img src="imgs/img6.jpeg" alt="">
+                    <p>Uma delicinha viu</p>
+                </div>
+
+
+            </div>
+           
+        </div>
+        <hr>
+        <button class="botao-amor" onclick="mostrarMensagem(); explodirCoracoes()">
+            Clique aqui se me ama ❤️
+        </button>
+
+        <p id="mensagem-surpresa" class="mensagem-escondida">
+            ❤️Eu amo vc demais minha princesa❤️
+        </p>
+        
+    </main>
+
+
+
+
+
+
+
+
+
+    <div class="hearts"></div>
+    <script>
+        function criarCoracao() {
+            
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+            heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+            document.querySelector(".hearts").appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(criarCoracao, 300);
+        function mostrarMensagem(){
+            const msg = document.getElementById("mensagem-surpresa");
+            msg.classList.toggle("mostrar");
+}
+function explodirCoracoes(){
+    const botao = document.querySelector(".botao-amor");
+    const rect = botao.getBoundingClientRect();
+
+    const origemX = rect.left + rect.width / 2;
+    const origemY = rect.top + rect.height / 2;
+
+    for(let i = 0; i < 40; i++){
+        const heart = document.createElement("div");
+        heart.classList.add("coracao-explosao");
+        heart.innerHTML = "❤️";
+
+        heart.style.left = origemX + "px";
+        heart.style.top = origemY + "px";
+
+        const x = (Math.random() - 0.5) * 600 + "px";
+        const y = (Math.random() - 0.5) * 600 + "px";
+
+        heart.style.setProperty('--x', x);
+        heart.style.setProperty('--y', y);
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 1000);
+    }
+}
+</script>
+</body>
+</html>

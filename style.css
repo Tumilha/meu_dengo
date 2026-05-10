@@ -1,0 +1,173 @@
+body{
+     background: radial-gradient(circle at top, #1a1a1a, #121212);
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #f9f9f9;
+}
+
+main{
+    text-align: center;
+    max-width: 1000px;
+    margin: auto;
+}
+h1{
+    font-weight: bold;
+    font-size: 4vh;
+    background: linear-gradient(90deg, #fd2050, #ff8fab);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h2{
+    font-size: 2.5vh;
+    font-weight: 100;
+}
+.carta{
+    background: rgba(24, 24, 24, 0.5);; /* transparente pro blur funcionar */
+    border: 2px solid #fd2050;
+    border-radius: 20px;
+    padding: 50px;
+    margin: 50px auto;
+    max-width: 600px;
+    font-size: 2vb;
+
+    animation: borda 5s infinite;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+@keyframes borda {
+    0%{
+        border-color: #fd2050;
+    }
+    50%{
+        border-color: #88001d;
+    }
+    100%{
+        border-color: #fd2050;
+    }
+}
+.carta p{
+text-align: justify;
+line-height: 1.6;
+}
+
+.hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -20px;
+    animation: subir linear forwards;
+}
+
+@keyframes subir {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+.imgs1{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.imgs1 img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover; /* corta sem deformar */
+    margin: 10px;
+    border-radius: 15px;
+}
+.imgs2{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.imgs2 img{
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+hr{
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #fd2050, transparent);
+    margin: 30px 0;
+}
+.galeria{
+    max-width: 900px;
+    margin: auto;
+}
+
+.imgs1 img,
+.imgs2 img{
+    transition: 0.3s ease;
+}
+
+.imgs1 img:hover,
+.imgs2 img:hover{
+    transform: scale(1.05);
+}
+
+.botao-amor{
+    background: linear-gradient(90deg, #fd2050, #ff8fab);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s ease;
+}
+
+.botao-amor:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #fd2050;
+}
+
+.mensagem-escondida{
+    opacity: 0;
+    margin-top: 20px;
+    font-size: 18px;
+    transition: 0.5s ease;
+}
+
+.mostrar{
+    opacity: 1;
+}
+
+.coracao-explosao{
+    position: fixed;
+    font-size: 20px;
+    pointer-events: none;
+    animation: explosao 1s ease-out forwards;
+}
+
+@keyframes explosao{
+    0%{
+        transform: translate(0,0) scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: translate(var(--x), var(--y)) scale(2);
+        opacity: 0;
+    }
+}
